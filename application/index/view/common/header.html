@@ -1,0 +1,24 @@
+<div id="divTop">
+    <h1 id="BlogTitle">
+            <img src="/static/index/images/LOGO.gif" alt="你我网" />
+    </h1>
+</div>
+<div id="divNavBar">
+    <ul>
+        <li>
+            <a href="{:url('index/index')}">首页</a>
+        </li>
+        {volist name="navres" id="vo"}
+        <li>
+            <a href="
+			{if condition=" $vo['type'] eq 0"}
+            {:url('CateList/index',array('cateid'=>$vo['id']))}
+            {else /}
+            {:url('guest/index',array('cateid'=>$vo['id']))}
+            {/if}
+            ">{$vo.catename}
+            </a>
+        </li>
+        {/volist}
+    </ul>
+</div>
